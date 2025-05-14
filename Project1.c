@@ -37,9 +37,13 @@
  *          2. Run the compiled program (./main).
  *          3. The program will display a menu for selecting the filing status. Naviation is handled via keyboard inputs (1-4).
  *          4. Enter the income details as prompted. (double)
+ *          5. The program will calculate and display the estimated tax payable based on the 2025 tax brackets.
+ *          * The program has basic error handling for invalid inputs. If an invalid input is detected, the program will prompt the user to re-enter the value.
+ *          If the user enters a non-integer value for the filing status, the program will clear the input buffer and prompt again. If nonvalid inputs are entered
+ *          during income input, the program will give NULL values/0.0 for the income.
+ *   (x)    Man Hours Spent: Kahan Patel: 6 hours, Gary Chen: 5 hours
+ *
  * */
-
-
 
 #include <stdio.h>
 #include <math.h> // For fmax
@@ -57,20 +61,18 @@
 #define DEDUCTION_MARRIED_SEPARATELY 15000.0
 
 // --- 2025 Regular Tax Brackets ---
-// Note: These are simplified representations. A full implementation
-// would use arrays or structures for better organization.
 
 // --- 2025 Qualified Dividends and Capital Gains Tax Brackets (Worksheet Lines 6 & 13) ---
 // Line 6 Thresholds (End of 0% bracket)
-#define L6_THRESH_SINGLE_SEP 48475.0 // Corrected based on PDF table (Single column, 0% row)
-#define L6_THRESH_HOH 64850.0        // Corrected based on PDF table (HoH column, 0% row)
-#define L6_THRESH_MARRIED_JOINTLY 96950.0 // Corrected based on PDF table (MFJ column, 0% row)
+#define L6_THRESH_SINGLE_SEP 48475.0 
+#define L6_THRESH_HOH 64850.0
+#define L6_THRESH_MARRIED_JOINTLY 96950.0
 
 // Line 13 Thresholds (End of 15% bracket)
-#define L13_THRESH_SINGLE 533400.0          // Corrected based on PDF table (Single column, 15% row)
-#define L13_THRESH_HOH 566700.0             // Corrected based on PDF table (HoH column, 15% row)
-#define L13_THRESH_MARRIED_JOINTLY 600050.0 // Corrected based on PDF table (MFJ column, 15% row)
-#define L13_THRESH_MARRIED_SEP 300000.0     // Corrected based on PDF table (MFS column, 15% row)
+#define L13_THRESH_SINGLE 533400.0
+#define L13_THRESH_HOH 566700.0
+#define L13_THRESH_MARRIED_JOINTLY 600050.0
+#define L13_THRESH_MARRIED_SEP 300000.0
 
 // --- Function Prototypes ---
 
@@ -82,7 +84,6 @@ void get_income(double *salary, double *interest, double *rent, double *dividend
 double get_standard_deduction(int status);
 double calculate_regular_tax(double taxable_income, int status);
 double min_double(double a, double b);
-// double max_double(double a, double b); // Use fmax from math.h
 
 // Main Calculation Logic (Worksheet)
 void calculate_tax_worksheet(int status, double salary, double interest, double rent, double dividend, double capital_gain);
@@ -93,20 +94,16 @@ void print_results(double l18, double l21, double l22, double l23, double l24, d
 
 // --- Main Program ---
 int main() {
-    // --- Documentation Placeholder ---
-    // IMPORTANT: Replace the details below as per your project requirements.
     printf("--------------------------------------------------\n");
     printf(" ECEC-201 Term Project 1: 2025 Tax Calculator\n");
     printf("--------------------------------------------------\n");
     printf("Developer(s): Kahan Patel & Gary Chen\n");
     printf("Student ID(s): 14638615, 14600255\n");
-    printf("Partner Status: Gary Chen & 14600255]\n");
     printf("\n");
     printf("Declaration:\n");
     printf("This project is exclusively the work of the developer(s) listed above.\n");
     printf("No assistance was received from unauthorized persons.\n");
     printf("No AI tools were used in the development of this code.\n");
-    // If partnered: printf("Division of Responsibilities: [Describe who did what]\n");
     printf("Signed: Kahan Patel, Gary Chen\n");
     printf("--------------------------------------------------\n\n");
 
@@ -223,7 +220,7 @@ double calculate_regular_tax(double taxable_income, int status) {
             else if (taxable_income <= 64850) { base_tax = 1700.00;   rate = 0.12; bracket_floor = 17000.0; }
             else if (taxable_income <= 103350){ base_tax = 7442.00;   rate = 0.22; bracket_floor = 64850.0; }
             else if (taxable_income <= 197300){ base_tax = 15912.00;  rate = 0.24; bracket_floor = 103350.0; }
-            else if (taxable_income <= 250500){ base_tax = 38460.00;  rate = 0.32; bracket_floor = 197300.0; } // Note: PDF has 250500, worksheet has 250525. Using PDF table.
+            else if (taxable_income <= 250500){ base_tax = 38460.00;  rate = 0.32; bracket_floor = 197300.0; }
             else if (taxable_income <= 626350){ base_tax = 55484.00;  rate = 0.35; bracket_floor = 250500.0; }
             else                              { base_tax = 187031.50; rate = 0.37; bracket_floor = 626350.0; }
             break;
@@ -267,12 +264,6 @@ double calculate_regular_tax(double taxable_income, int status) {
 double min_double(double a, double b) {
     return (a < b) ? a : b;
 }
-
-// Note: max_double is not strictly needed as we can use fmax from math.h
-// double max_double(double a, double b) {
-//     return (a > b) ? a : b;
-// }
-
 
 /**
  * @brief Implements the logic from the 2025 Qualified Dividends and Capital Gain Tax Worksheet.
