@@ -1,3 +1,46 @@
+/*
+ *   (i) Worked in a group. Group Member(s): Kahan Patel 14638615, Gary Chen 14600255
+ *   (ii) This project is the work of the developer(s) listed above. No assistance was received from unauthorized persons.
+ *   (iii) No AI tools were used in the development of this code.
+ *   (iv) Kahan Patel: Code Development & Testing & Documentation | Gary Chen: Code Development & Testing & Documentation
+ *   Signed: Kahan Patel, Gary Chen
+ *
+ *   (v) This program calculates the estimated tax payable for the year 2025 based on user inputs.
+ *       It includes filing status selection, income input, and tax calculation using the 2025 tax brackets.
+ *       The program is designed to be user-friendly and provides clear output of the tax calculations.
+ *       The tax calculation follows the Qualified Dividends and Capital Gain Tax Worksheet for 2025.
+ *   (vi) The following C features & libraries were used:
+ *        - Standard I/O library for input/output operations (Ch. 2 & 3) (Printf (3.1), Scanf (3.2))
+ *        - Math library for mathematical operations (e.g., fmax) (Ch. 4) (Arithmetic Operators (4.1), Assignment Operators (4.2), Increment/Decrement Operators 
+ *        (4.3), Expressions (4.4 & 4.5))
+ *        - Functions for modular code organization (Ch. 9) (Defining/Call Functions (9.1), Function Declarations (9.2), Arguments (9.3), Return Values (9.4))
+ *        - Constants for standard deductions and tax brackets
+ *        - Conditional statements for filing status and tax bracket selection (Ch. 5) (Logical Expressions (5.1), If-Else Statements (5.2), Switch Statements 
+ *        (5.3))
+ *        - Loops for input validation (Ch. 6) (While Loops (6.1), For Loops (6.3), Exiting Loops (6.4))
+ *        - Basic data types (int, double) for variable declarations (Ch. 7) (Integers (7.1), Variable Declarations (7.2), Type Definitions (7.5))
+ *        - Program Organization (Ch. 10) (Local Variables (10.1), External Variables (10.2), Block Statements (10.3), Scope of Variables (10.4))
+ *        - Pointers for passing variables to functions (Ch. 11) (Pointers (11.1), Pointer Addressing (11.2), Pointer Assignment (11.3), Pointer as Argument 
+ *        (11.4))
+ *        - Strings for UI prompts (Ch.13) (String Literals (13.1))
+ *   (vii)  The code uses the following chapters listed above to create a program that can take user input and calculate the tax based on the 2025 tax brackets.
+ *          The program passes all test cases given in the program instructions. Edge-case testing was also done handle user-inputs that are not valid. The program
+ *          responds dynamically to user inputs and provides the correct tax calculation based on the 2025 tax brackets. The program is modular and organized,
+ *          making it easy to read and maintain.
+ *   (viii) The code was tested via hand calculation. The first testcase was done by hand the answer was verified via the answer provided by professor. The result
+ *          of the program was then compared to the hand calculation. Since the results were identical, it verified the results of the program. Moreover, since the
+ *          tax calculation for 2025 follows at set algorithm, each case is implicitly verified by the algorithm itself. A screenshot of both the hand written
+ *          result and program output is provided in the project submission.
+ *   (ix)   Instructions for running the program:
+ *          1. Compile main.c using a C compiler (e.g., gcc) (gcc -o main main.c). Note* if you experience a linker error include the the -lm flag during
+ *          the compilation (gcc -o main main.c -lm).
+ *          2. Run the compiled program (./main).
+ *          3. The program will display a menu for selecting the filing status. Naviation is handled via keyboard inputs (1-4).
+ *          4. Enter the income details as prompted. (double)
+ * */
+
+
+
 #include <stdio.h>
 #include <math.h> // For fmax
 
