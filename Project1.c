@@ -1,6 +1,6 @@
-/*
+/*   **Outside of code documentation** 
  *   (i) Worked in a group. Group Member(s): Kahan Patel 14638615, Gary Chen 14600255
- *   (ii) This project is the work of the developer(s) listed above. No assistance was received from unauthorized persons.
+ *   (ii) This project is the work of the developer(s) listed above. No assistance was received from unauthorized persons other than those mentioned above.
  *   (iii) No AI tools were used in the development of this code.
  *   (iv) Kahan Patel: Code Development & Testing & Documentation | Gary Chen: Code Development & Testing & Documentation
  *   Signed: Kahan Patel, Gary Chen
@@ -48,7 +48,7 @@
 #include <stdio.h>
 #include <math.h> // For fmax
 
-// Define constants for filing status choices
+// Constants for filing status choices (used #define for better readability and less memory usage)
 #define SINGLE 1
 #define HEAD_OF_HOUSEHOLD 2
 #define MARRIED_JOINTLY 3
@@ -62,7 +62,7 @@
 
 // --- 2025 Regular Tax Brackets ---
 
-// --- 2025 Qualified Dividends and Capital Gains Tax Brackets (Worksheet Lines 6 & 13) ---
+// --- 2025 Qualified Dividends and Capital Gains Tax Brackets ---
 // Line 6 Thresholds (End of 0% bracket)
 #define L6_THRESH_SINGLE_SEP 48475.0 
 #define L6_THRESH_HOH 64850.0
@@ -85,7 +85,7 @@ double get_standard_deduction(int status);
 double calculate_regular_tax(double taxable_income, int status);
 double min_double(double a, double b);
 
-// Main Calculation Logic (Worksheet)
+// Main Calculation Logic
 void calculate_tax_worksheet(int status, double salary, double interest, double rent, double dividend, double capital_gain);
 
 // Output Function
@@ -118,7 +118,7 @@ int main() {
     // Perform the tax calculation using the worksheet logic
     calculate_tax_worksheet(status, salary, interest, rent, dividend, capital_gain);
 
-    return 0; // Indicate successful execution
+    return 0;
 }
 
 // --- Function Definitions ---
@@ -167,7 +167,7 @@ void get_income(double *salary, double *interest, double *rent, double *dividend
     scanf("%lf", dividend);
     printf("  Capital Gains: ");
     scanf("%lf", capital_gain);
-    printf("\n"); // Add a newline for better formatting
+    printf("\n");
 }
 
 /**
@@ -262,7 +262,7 @@ double calculate_regular_tax(double taxable_income, int status) {
  * @return The smaller of a and b.
  */
 double min_double(double a, double b) {
-    return (a < b) ? a : b;
+    return (a < b) ? a : b; // turnary operator (simplifies if else statement)
 }
 
 /**
@@ -397,7 +397,6 @@ void calculate_tax_worksheet(int status, double salary, double interest, double 
     // Print the required results
     print_results(l18, l21, l22, l23, l24, l25);
 }
-
 
 /**
  * @brief Prints the calculated tax results to the console.
