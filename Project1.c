@@ -161,7 +161,7 @@ double get_standard_deduction(int status) {
 }
 
 /**
- * @brief Calculates the regular income tax based on the 2025 tax brackets.
+ * @brief Calculates the regular income tax based on the tax brackets.
  * @param taxable_income The income amount subject to regular tax rates.
  * @param status The filing status code.
  * @return The calculated regular income tax.
@@ -232,7 +232,7 @@ double min_double(double a, double b) {
 }
 
 /**
- * @brief Implements the logic from the 2025 Qualified Dividends and Capital Gain Tax Worksheet.
+ * @brief Implements the logic from the Worksheet provided.
  * @param status The filing status code.
  * @param salary Salary income.
  * @param interest Interest income.
