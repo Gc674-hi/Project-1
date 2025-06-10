@@ -14,12 +14,13 @@
  * - Constants for standard deductions and tax brackets
  * - Conditional statements for filing status and tax bracket selection (Ch. 5) (Logical Expressions (5.1), If-Else Statements (5.2), Switch Statements 
  * (5.3))
- * - Loops for input validation (Ch. 6) (While Loops (6.1), For Loops (6.3), Exiting Loops (6.4))
+ * - Loops for input validation (Ch. 6) (For Loops (6.3), Exiting Loops (6.4))
  * - Basic data types (int, double) for variable declarations (Ch. 7) (Integers (7.1), Variable Declarations (7.2), Type Definitions (7.5))
  * - Program Organization (Ch. 10) (Local Variables (10.1), External Variables (10.2), Block Statements (10.3), Scope of Variables (10.4))
  * - Pointers for passing variables to functions (Ch. 11) (Pointers (11.1), Pointer Addressing (11.2), Pointer Assignment (11.3), Pointer as Argument 
  * (11.4))
- * - Strings for UI prompts (Ch.13) (String Literals (13.1))
+ * - Strings for UI prompts (Ch.13) (String Literals (13.1), String Variables (13.2), Reading and Writing Strings (13.3), C string library (13.5), Array of Strings (13.7))
+ * - Advance use of Pointers (Ch. 17)
  * (vii) The code uses the following chapeters listed above to create a program that can take user input via the command line and convert the input into written/verbal format of the calendar information. The program passes all test cases given in the program instructions. Edge-case testing was also done to ensure the program is robust and handles invalid inputs gracefully. The program is modular and uses functions to validate the date input, ensuring that it is a valid date before converting it to the written format. The program also handles leap years correctly.
  * (viii) The code was tested using the provided test cases and the conversions were also done by hand to validate of a given date was valid. After doing both the results of the program was then compared to the hand calculation. Since the results were identical, it verified the results of the program. Moreover, all the other test cases were also complied and tested. All test cases gave valid results. Thus, proving the validity of the program. Screenshots of the results and tests are provided in the assignment submission.
  * (ix) Instructions for running the program:
