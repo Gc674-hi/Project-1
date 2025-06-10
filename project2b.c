@@ -11,8 +11,7 @@
  * - Mathematical operations (Ch. 4) (Arithmetic Operators (4.1), Assignment Operators (4.2), Increment and Decrement Operators (4.3))
  * - (4.3), Expressions (4.4 & 4.5))
  * - Functions for modular code organization (Ch. 9) (Defining/Call Functions (9.1), Function Declarations (9.2), Arguments (9.3), Return Values (9.4))
- * - Constants for standard deductions and tax brackets
- * - Conditional statements for filing status and tax bracket selection (Ch. 5) (Logical Expressions (5.1), If-Else Statements (5.2), Switch Statements 
+ * - (Ch. 5) (Logical Expressions (5.1), If-Else Statements (5.2), Switch Statements 
  * (5.3))
  * - Loops for input validation (Ch. 6) (For Loops (6.3), Exiting Loops (6.4))
  * - Basic data types (int, double) for variable declarations (Ch. 7) (Integers (7.1), Variable Declarations (7.2), Type Definitions (7.5))
